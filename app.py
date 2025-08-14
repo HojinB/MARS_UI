@@ -506,7 +506,7 @@ def handle_teleop_stop(n_clicks, wifi_data, teleop_state):
 
 server = app.server
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 8050))
+    port = int(os.environ.get('PORT', 8081))
     app.run(
         host='0.0.0.0',  # 외부 접속 허용
         port=port,
