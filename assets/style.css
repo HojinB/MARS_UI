@@ -1,0 +1,505 @@
+/* assets/style.css - Master Device UI 통합 스타일 */
+
+/* ========== 전체 배경 ========== */
+body {
+    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+    min-height: 100vh;
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+}
+
+/* 전역 드롭다운 메뉴 스타일 (body에 직접 렌더링될 때) */
+.Select-menu-outer {
+    z-index: 99999 !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-radius: 10px !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+.css-26l3qy-menu {
+    z-index: 99999 !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-radius: 10px !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+/* ========== 메인 페이지 연결 카드 ========== */
+.connection-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.connection-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+.connection-card:active {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+    0% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    50% { box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+    100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+}
+
+/* 각 카드별 호버 효과 */
+#local-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4) !important;
+}
+
+#wifi-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4) !important;
+}
+
+#usb-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.4) !important;
+}
+
+/* ========== USB 페이지 스타일 ========== */
+.connect-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(230, 126, 34, 0.4) !important;
+}
+
+/* 드롭다운 스타일 개선 - 목록이 앞으로 나오도록 수정 */
+.custom-dropdown {
+    position: relative !important;
+    z-index: 1000 !important;
+}
+
+.custom-dropdown .Select-control {
+    border-radius: 10px !important;
+    border: 2px solid #E0E0E0 !important;
+    min-height: 50px !important;
+    position: relative !important;
+    z-index: 1001 !important;
+}
+
+.custom-dropdown .Select-control:hover {
+    border-color: #F39C12 !important;
+}
+
+/* 드롭다운 메뉴가 카드 앞에 표시되도록 높은 z-index 설정 */
+.custom-dropdown .Select-menu-outer {
+    z-index: 9999 !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-radius: 10px !important;
+    overflow: visible !important;
+}
+
+.custom-dropdown .Select-menu {
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    z-index: 9999 !important;
+    border-radius: 10px !important;
+    border: 1px solid #E0E0E0 !important;
+    background: white !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.custom-dropdown .Select-option {
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+    border-bottom: 1px solid #F5F5F5 !important;
+}
+
+.custom-dropdown .Select-option:hover {
+    background-color: #F39C12 !important;
+    color: white !important;
+}
+
+.custom-dropdown .Select-option:last-child {
+    border-bottom: none !important;
+}
+
+/* React-Select v2+ 스타일 (최신 Dash) */
+.custom-dropdown .css-1hwfws3 {
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    z-index: 9999 !important;
+}
+
+.custom-dropdown .css-26l3qy-menu {
+    z-index: 9999 !important;
+    position: absolute !important;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+    border-radius: 10px !important;
+    border: 1px solid #E0E0E0 !important;
+}
+
+.custom-dropdown .css-1n7v3ny-option {
+    padding: 12px 16px !important;
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    word-wrap: break-word !important;
+    white-space: normal !important;
+}
+
+.custom-dropdown .css-1n7v3ny-option:hover {
+    background-color: #F39C12 !important;
+    color: white !important;
+}
+
+/* 드롭다운을 포함한 카드의 overflow 설정 */
+.dropdown-card {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+.dropdown-card-body {
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 101 !important;
+}
+
+/* 전체 컨테이너도 overflow visible 설정 */
+.container-fluid {
+    overflow: visible !important;
+}
+
+/* 드롭다운 영역 컨테이너 */
+.dropdown-container {
+    position: relative !important;
+    z-index: 1000 !important;
+    overflow: visible !important;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,123,255,0.3);
+}
+
+/* ========== LED 및 컨트롤 상태 ========== */
+.led-on {
+    color: #28a745 !important;
+    font-size: 1.2em;
+}
+
+.led-off {
+    color: #6c757d !important;
+    font-size: 1.2em;
+}
+
+.led-pos-on {
+    color: #007bff !important;
+    font-size: 1.2em;
+}
+
+.control-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.control-inactive {
+    color: #6c757d;
+}
+
+/* ========== 카드 및 버튼 스타일 ========== */
+.card {
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+/* ========== 상태 표시 스타일 ========== */
+.status-success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-warning {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-danger {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* ========== 헤더 개선 ========== */
+.header-container {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ========== 스크롤바 스타일 ========== */
+div[style*="overflowY: auto"]::-webkit-scrollbar {
+    width: 8px;
+}
+
+div[style*="overflowY: auto"]::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+div[style*="overflowY: auto"]::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+div[style*="overflowY: auto"]::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ========== 반응형 디자인 ========== */
+@media (max-width: 768px) {
+    .connection-card {
+        margin-bottom: 20px;
+        height: 240px !important;
+    }
+    
+    .connection-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .connection-card .emoji-icon {
+        font-size: 3rem !important;
+    }
+}
+
+/* ========== 애니메이션 효과 ========== */
+.fade-in {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}/* assets/style.css - Master Device UI 통합 스타일 */
+
+/* ========== 전체 배경 ========== */
+body {
+    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+    min-height: 100vh;
+}
+
+/* ========== 메인 페이지 연결 카드 ========== */
+.connection-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.connection-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+.connection-card:active {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+    0% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    50% { box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+    100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+}
+
+/* 각 카드별 호버 효과 */
+#local-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4) !important;
+}
+
+#wifi-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4) !important;
+}
+
+#usb-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.4) !important;
+}
+
+/* ========== LED 및 컨트롤 상태 ========== */
+.led-on {
+    color: #28a745 !important;
+    font-size: 1.2em;
+}
+
+.led-off {
+    color: #6c757d !important;
+    font-size: 1.2em;
+}
+
+.led-pos-on {
+    color: #007bff !important;
+    font-size: 1.2em;
+}
+
+.control-active {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.control-inactive {
+    color: #6c757d;
+}
+
+/* ========== 카드 및 버튼 스타일 ========== */
+.card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+
+/* ========== 상태 표시 스타일 ========== */
+.status-success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-warning {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-danger {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* ========== 헤더 개선 ========== */
+.header-container {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* ========== 스크롤바 스타일 ========== */
+div[style*="overflowY: auto"]::-webkit-scrollbar {
+    width: 8px;
+}
+
+div[style*="overflowY: auto"]::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+div[style*="overflowY: auto"]::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+div[style*="overflowY: auto"]::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* ========== 반응형 디자인 ========== */
+@media (max-width: 768px) {
+    .connection-card {
+        margin-bottom: 20px;
+        height: 240px !important;
+    }
+    
+    .connection-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .connection-card .emoji-icon {
+        font-size: 3rem !important;
+    }
+}
+
+/* ========== 추가 시각적 효과 ========== */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}/* assets/main_styles.css - 메인 페이지 스타일 */
+
+/* 전체 배경 */
+body {
+    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+    min-height: 100vh;
+}
+
+/* 연결 카드 호버 효과 */
+.connection-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+.connection-card:active {
+    transform: translateY(-5px) scale(1.01);
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+    0% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+    50% { box-shadow: 0 15px 35px rgba(0,0,0,0.4); }
+    100% { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+}
+
+/* 각 카드별 호버 효과 */
+#local-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4) !important;
+}
+
+#wifi-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4) !important;
+}
+
+#usb-card:hover {
+    animation: pulse 2s infinite;
+    box-shadow: 0 15px 35px rgba(230, 126, 34, 0.4) !important;
+}
+
+/* 추가적인 시각적 효과 */
+.connection-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* 헤더 개선 */
+.header-container {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .connection-card {
+        margin-bottom: 20px;
+        height: 240px !important;
+    }
+    
+    .connection-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .connection-card .emoji-icon {
+        font-size: 3rem !important;
+    }
+}

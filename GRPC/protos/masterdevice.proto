@@ -1,0 +1,67 @@
+syntax = "proto3";  //항상 선언!!
+
+// The greeting service definition.
+service Masterdevice {
+  rpc Connect(ConnectCommand) returns(ConnectMessage);
+  rpc GravityMode (GravityState) returns (GravityReply) ;
+  rpc Teleoperation1 (TeleoperationCommand1) returns (TeleoperationMessage1); 
+  rpc Teleoperation2 (stream TeleoperationCommand2) returns (TeleoperationMessage2);
+  rpc PositionMode (PositionState) returns (PositionReply) ;
+  rpc Homing ( HomingCommand ) returns (HomingReply);
+  rpc Save (SaveCommand) returns (SaveReply);
+  rpc Delete (DeleteCommand) returns (DeleteReply);
+  rpc PowerOff (PowerOffStart) returns(PowerOffReply);
+}
+
+message ConnectCommand{
+    string command = 1;
+}
+message ConnectMessage{
+    string message = 1;
+}
+message HomingCommand{
+    string command = 1;
+}
+message HomingReply{
+    string message = 1;
+}
+message TeleoperationCommand1{
+    string command = 1;
+}
+message TeleoperationMessage1{
+    string message = 1;
+}
+message TeleoperationCommand2{
+    repeated float angle = 1;
+}
+message TeleoperationMessage2{
+    string message = 1;
+}
+message PowerOffStart{
+    string command = 1;
+    }
+message PowerOffReply{
+    string message = 1;
+    }
+message SaveCommand{
+    repeated float angle = 1;
+}
+message SaveReply{}
+
+message GravityState {
+  string command = 1;
+}
+message GravityReply{
+
+}
+message PositionState {
+    string command = 1;
+}
+message PositionReply{
+}
+message DeleteCommand{
+    string command = 1;
+}
+message DeleteReply{
+}
+
