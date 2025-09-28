@@ -1,9 +1,39 @@
-
 Master Device Control UI (Raspberry Pi Ver.)
 📝 Overview
 This document provides instructions for the web-based user interface designed for the precise control and monitoring of a dual-arm master device powered by a Raspberry Pi and a U2D2.
 
 All communication between this UI, the master device, and the slave robot is built on gRPC, ensuring fast and stable data exchange.
+
+🚀 Installation and Setup
+1. Clone the Repository
+First, clone this repository to your local machine using the following command:
+
+Bash
+
+git clone https://github.com/your-username/Neuromeka-MasterDevice.git
+cd Neuromeka-MasterDevice/masterdevice_raspi_ver
+(Note: Replace your-username with the actual GitHub username or organization.)
+
+2. Install Dependencies
+Install the required Python packages. It's recommended to use a requirements.txt file.
+
+Bash
+
+pip install -r requirements.txt
+3. Network Configuration
+For the UI to communicate with the Raspberry Pi, your PC must be on the same network.
+
+The PC running the UI must have an IP address that starts with 192.168.0.x.
+
+For a seamless setup without any changes, set your PC's IP address to 192.168.0.4. This allows the UI to connect to the default device IPs without any modifications.
+
+4. Run the Application
+Once the network is configured, run the UI by executing the app.py script:
+
+Bash
+
+python app.py
+After running the command, open a web browser and navigate to the address provided in the terminal (usually http://127.0.0.1:8050).
 
 📖 How to Use
 Step 1: Connect to the Device
