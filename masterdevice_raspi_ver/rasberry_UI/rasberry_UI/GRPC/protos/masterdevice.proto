@@ -1,0 +1,83 @@
+syntax = "proto3";  //항상 선언!!
+
+// The greeting service definition.
+service masterdevice {
+  rpc Connect(ConnectCommand) returns(ConnectMessage);
+  rpc GravityMode (GravityState) returns (GravityReply);
+  rpc GravityCompGain (GravityCompGainRequest) returns (GravityCompGainReply );
+  rpc Teleoperation1 (TeleoperationCommand1) returns (TeleoperationMessage1); 
+  rpc Teleoperation2 (stream TeleoperationCommand2) returns (TeleoperationMessage2);
+  rpc PositionMode (PositionState) returns (PositionReply);
+  rpc Homing ( HomingCommand ) returns (HomingReply);
+  rpc Save (stream SaveCommand) returns (SaveReply);
+  rpc Delete (DeleteCommand) returns (DeleteReply);
+  rpc PowerOff (PowerOffStart) returns(PowerOffReply);
+}
+
+message ConnectCommand{
+    string command = 1;
+}
+message ConnectMessage{
+    string message = 1;
+}
+message HomingCommand{
+    string command = 1;
+}
+message HomingReply{
+    string message = 1;
+}
+message TeleoperationCommand1{
+    string command = 1;
+}
+message TeleoperationMessage1{
+    string message = 1;
+}
+message TeleoperationCommand2{
+    repeated float angle    = 1;
+    uint64 seq              = 2;
+    string session_id       = 3;
+    int64 t_capture_ns      = 4;
+    int64 t_send_ns         = 5;
+}
+message TeleoperationMessage2{
+    string message = 1;
+}
+message PowerOffStart{
+    string command = 1;
+    }
+message PowerOffReply{
+    string message = 1;
+    }
+message SaveCommand{
+    string command          = 1;
+    repeated float angle    = 2;
+    uint64 seq              = 3;
+    string session_id       = 4;
+    int64 t_capture_ns      = 5;
+    int64 t_send_ns         = 6;
+}
+message SaveReply{}
+
+message GravityState {
+  string command = 1;
+}
+message GravityReply{}
+
+message PositionState {
+    string command = 1;
+}
+message PositionReply{
+}
+message DeleteCommand{
+    string command = 1;
+}
+message DeleteReply{
+}
+
+message GravityCompGainRequest  {
+    float shoulder_gain = 1;
+    float joint_gain    = 2;
+}
+message GravityCompGainReply {
+    string message = 1;
+}
